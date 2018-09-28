@@ -7,3 +7,13 @@ view包为自定义进度条,可圆角,可不是圆角实现,activity_main.xml�
 工具类L T
 
 适配dp values-sw320dp   values-sw360
+
+
+@Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            L.e("1");
+            return doubleClickExitHelper.onKeyDown(keyCode, event);
+        }
+        return super.onKeyDown(keyCode, event);
+    }
