@@ -9,6 +9,10 @@ view包为自定义进度条,可圆角,可不是圆角实现,activity_main.xml�
 适配dp values-sw320dp   values-sw360
 
 
+
+ private DoubleClickExitHelper doubleClickExitHelper;
+
+  doubleClickExitHelper = new DoubleClickExitHelper(this);
 @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
