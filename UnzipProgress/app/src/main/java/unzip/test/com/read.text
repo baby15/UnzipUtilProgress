@@ -29,3 +29,5 @@ view包为自定义进度条,可圆角,可不是圆角实现,activity_main.xml�
     DensityUtil中可获取屏幕密度,宽度,高度,dpi等值
 
     项目文件夹下的lib文件夹为java自动生成适配工具代码
+
+    build.gradle含有多渠道打包代码

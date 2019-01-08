@@ -30,6 +30,33 @@ android {
             path "CMakeLists.txt"
         }
     }
+    lintOptions {
+        checkReleaseBuilds true
+        abortOnError false
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                def fileName = outputFile.name.replace(".apk", "-${defaultConfig.versionName}.apk")
+                outputFileName = fileName
+            }
+        }
+    }
+
+    flavorDimensions "tier"//新增的,值是数组
+    productFlavors {
+
+        httc { dimension "tier"}
+        kxht { dimension "tier"}
+
+        productFlavors.all { flavor ->
+            flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+        }
+
+    }
 }
 
 dependencies {
