@@ -31,3 +31,29 @@ view包为自定义进度条,可圆角,可不是圆角实现,activity_main.xml�
     项目文件夹下的lib文件夹为java自动生成适配工具代码
 
     build.gradle含有多渠道打包代码
+
+
+    /**
+	 * 获取屏幕密度   sw320和sw360公式计算
+	 * 系统自动识别手机的最小宽度(smallestWidth宽度 * 160  除以   densityDpi)得到的值做宽高最小适配计算,
+	 *    px = density * dp;density = densityDpi / 160;px = dp * (densityDpi / 160);
+	 */
+
+android 适配文件密度说明:
+
+
+    像素密度等级	  等级像素密度	  逻辑像素密度	  屏幕像素	  屏幕尺寸(inch)	  宽逻辑尺寸(dp单位)	 真实像素密度	    设备型号
+    ldpi-0.75	     120	         120	       240*320	        2.7	          w320dp	         140.55
+    mdpi-1	         160	         160	       320*480	        3.2	          w320dp	         180.27
+    hdpi-1.5	     240	         240	       480*800	        3.4	          w320dp	         274.39
+    xhdpi-2	         320	         320	       720*1280	        4.65	      w360dp	         315.6
+    xhdpi-2	         320	         320	       768*1280	        4.65	      w384dp	         321	     Nexus4
+    xxhdpi-3	     480	         480	       1080*1920	    4.95	      w360dp	         445	     Nexus5
+    xxhdpi-3	     480	         420	       1080*1920	    5.2	          w411dp	         423	     Nexus5X
+    xxxdpi-4	     640	         560	       1440*2560	    5.96	      w411dp	         493	     Nexus6/6P
+
+    240-320dpi  适配的  xhdpi文件夹
+    320-480dpi  适配的  xxhdpi文件夹
+    480-640dpi  适配的  xxxhdpi文件夹
+
+    dpi为densityDpi,工具类utils中DensityUtil可得到值,宽高最小适配计算    values-sw(with * 160 /densityDpi)dp,
