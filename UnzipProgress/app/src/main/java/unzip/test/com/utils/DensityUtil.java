@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.util.DisplayMetrics;
 
+import java.math.BigDecimal;
+
 
 public class DensityUtil {
 	private static float scale;
@@ -53,5 +55,26 @@ public class DensityUtil {
 		context.getWindowManager().getDefaultDisplay().getMetrics(dm);
 		float density = dm.density;//只有五种情况 : 0.75/ 1.0/ 1.5/ 2.0/ 3.0
 		return density;
+	}
+	/**
+	 *  获取当前手机屏幕尺寸
+	 */
+	public static double getPingMuSize(Activity mContext) {
+		DisplayMetrics dm = new DisplayMetrics();
+		mContext.getWindowManager().getDefaultDisplay().getMetrics(dm);
+
+		float xdpi = dm.xdpi;
+		float ydpi = dm.ydpi;
+		int width = dm.widthPixels;
+		int height = dm.heightPixels;
+
+		double x = Math.pow(width / xdpi, 2);//Math.pow(x, y)  返回x的y次幂
+		double y = Math.pow(height / ydpi, 2); // 屏幕尺寸
+		BigDecimal decimal = new BigDecimal(Math.sqrt(x + y));
+		decimal = decimal.setScale(1,BigDecimal.ROUND_UP);//保留一位小数,进位处理
+		double mScreenInches = decimal.doubleValue();
+
+		return mScreenInches;
+
 	}
 }
