@@ -11,3 +11,6 @@ view包为自定义进度条,可圆角,可不是圆角实现,activity_main.xml�
 工具类L T
 
 适配dp values-sw320dp   values-sw360
+
+
+#GetPhone  获取手机适配信息
