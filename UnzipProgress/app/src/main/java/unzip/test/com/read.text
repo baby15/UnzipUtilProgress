@@ -52,8 +52,13 @@ android 适配文件密度说明:
     xxhdpi-3	     480	         420	       1080*1920	    5.2	          w411dp	         423	     Nexus5X
     xxxdpi-4	     640	         560	       1440*2560	    5.96	      w411dp	         493	     Nexus6/6P
 
+     0-120dpi    适配的  ldpi文件夹
+    120-160dpi  适配的  mdpi文件夹
+    160-240dpi  适配的  hdpi文件夹
     240-320dpi  适配的  xhdpi文件夹
     320-480dpi  适配的  xxhdpi文件夹
     480-640dpi  适配的  xxxhdpi文件夹
 
     dpi为densityDpi,工具类utils中DensityUtil可得到值,宽高最小适配计算    values-sw(with * 160 /densityDpi)dp,
+
+    water包为添加水印工具

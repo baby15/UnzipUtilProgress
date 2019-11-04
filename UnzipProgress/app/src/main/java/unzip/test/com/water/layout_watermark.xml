@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:alpha="0.2"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <kx.httc.com.kxclient.ui.WatermarkTextView
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/base150.0dp"
+        android:text="@string/test_version"
+        android:textColor="@color/grey_99"
+       android:textStyle="bold"
+        android:textSize="@dimen/base40.0dp"/>
+    <kx.httc.com.kxclient.ui.WatermarkTextView
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/base150.0dp"
+        android:text="@string/test_version"
+        android:textColor="@color/grey_99"
+        android:textStyle="bold"
+        android:textSize="@dimen/base40.0dp"/>
+    <kx.httc.com.kxclient.ui.WatermarkTextView
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/base150.0dp"
+        android:text="@string/test_version"
+        android:textColor="@color/grey_99"
+        android:textStyle="bold"
+        android:textSize="@dimen/base40.0dp"/>
+</LinearLayout>
