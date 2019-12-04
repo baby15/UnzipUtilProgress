@@ -1,8 +1,12 @@
 package httc.test.com.getphone;
 
 import android.Manifest;
+import android.app.Activity;
+import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -15,6 +19,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -26,8 +31,10 @@ public class CameraActivity extends AppCompatActivity {
 
     private static final int REQUEST_TAKE_PHOTO_CODE = 3;
     private static final int REQUEST_PERMISSION_CODE = 5;
+    private static final int FILE_SELECTOR_CODE = 6;
     private Uri mUri;
     private Button button;
+    private Button buttonFile;
     private ImageView mImageView;
 
     @Override
@@ -36,17 +43,35 @@ public class CameraActivity extends AppCompatActivity {
         setContentView(R.layout.activity_camera);
 
         button =  findViewById(R.id.button);
+        buttonFile =  findViewById(R.id.button_file);
         mImageView =  findViewById(R.id.image_view);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
              //   takeNoPermissionPhoto();
-
                 takePermissionPhoto();
+            }
+        });
+        buttonFile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openFileSelector();
             }
         });
 
     }
+    /**
+     * 打开本地文件器
+     */
+    private void openFileSelector() {
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("*/*");//设置类型，我这里是任意类型，任意后缀的可以这样写。
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);//打开apk文件
+//        intent.setDataAndType(uri, "application/vnd.android.package-archive");
+        startActivityForResult(intent, FILE_SELECTOR_CODE);
+    }
+
     private void takePermissionPhoto() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {//大于Android 6.0
             if (!checkPermission()) { //没有或没有全部授权
@@ -104,6 +129,12 @@ public class CameraActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == FILE_SELECTOR_CODE && resultCode == Activity.RESULT_OK) {
+            Uri uri = data.getData();
+            L.e( "文件路径："+ uri.getPath());
+            L.e( "文件真实路径："+getRealFilePath(this,uri));
+
+        }
         if (resultCode == RESULT_OK && requestCode == REQUEST_TAKE_PHOTO_CODE) {//获取系统照片上传
 
             Bitmap bm = null;
@@ -218,4 +249,35 @@ public class CameraActivity extends AppCompatActivity {
         Bitmap bitmap = BitmapFactory.decodeStream(isBm, null, null);//把ByteArrayInputStream数据生成图片
         return bitmap;
     }
+    /**
+     * 获取真实路径
+     *
+     * @param context
+     * @param uri
+     * @return
+     */
+    public static String getRealFilePath(Context context, final Uri uri) {
+        if (null == uri)
+            return null;
+        final String scheme = uri.getScheme();
+        String data = null;
+        if (scheme == null)
+            data = uri.getPath();
+        else if (ContentResolver.SCHEME_FILE.equals(scheme)) {
+            data = uri.getPath();
+        } else if (ContentResolver.SCHEME_CONTENT.equals(scheme)) {
+            Cursor cursor = context.getContentResolver().query(uri, new String[] { MediaStore.Images.ImageColumns.DATA }, null, null, null);
+            if (null != cursor) {
+                if (cursor.moveToFirst()) {
+                    int index = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+                    if (index > -1) {
+                        data = cursor.getString(index);
+                    }
+                }
+                cursor.close();
+            }
+        }
+        return data;
+    }
+
 }
