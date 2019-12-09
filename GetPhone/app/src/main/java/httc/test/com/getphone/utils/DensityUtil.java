@@ -1,4 +1,4 @@
-package httc.test.com.getphone;
+package httc.test.com.getphone.utils;
 
 import android.app.Activity;
 import android.content.Context;

@@ -1,11 +1,10 @@
-package httc.test.com.getphone;
+package httc.test.com.getphone.base;
 
 import android.app.Application;
 import android.content.SharedPreferences;
 import android.os.Environment;
 import android.preference.PreferenceManager;
-
-import static android.os.Environment.DIRECTORY_DOWNLOADS;
+import httc.test.com.getphone.utils.L;
 
 /**
  * Created by Administrator on 2017/5/17.

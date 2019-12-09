@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+android:shape="oval">
+    <!-- oval_inner[内部] -->
+   <!-- <stroke
+            android:width="10dp"
+            android:color="#ffffff" />-->
+    <!-- oval_inner_size[大小(除去边线)] ，也是最终裸露出来的圆形图像区域-->
+    <size
+            android:height="30dp"
+            android:width="30dp" />
+    <solid android:color="#007AFF" />
+
+</shape>

@@ -1,4 +1,4 @@
-package httc.test.com.getphone;
+package httc.test.com.getphone.bean;
 
 import android.graphics.Bitmap;
 

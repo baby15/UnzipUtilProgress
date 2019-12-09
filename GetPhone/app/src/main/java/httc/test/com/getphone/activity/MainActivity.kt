@@ -1,4 +1,4 @@
-package httc.test.com.getphone
+package httc.test.com.getphone.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,10 @@ import android.os.Environment
 import android.support.v7.app.AppCompatActivity
 import android.util.DisplayMetrics
 import android.widget.Toast
+import httc.test.com.getphone.utils.DensityUtil
+import httc.test.com.getphone.utils.L
+import httc.test.com.getphone.R
+import httc.test.com.getphone.utils.SystemUtil
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -17,7 +21,9 @@ class MainActivity : AppCompatActivity() {
        getWindowManager().getDefaultDisplay().getMetrics(dm)
         tv1.text = "densityDpi : " + dm.densityDpi + "---density : " + dm.density
         tv2.text = "计算适配的smallestWidth : " + dm.widthPixels / (dm.densityDpi / 160.0) + "dp"
-        tv3.text = "宽 :" + dm.widthPixels + "  高:" + dm.heightPixels + "--屏幕尺寸:" + DensityUtil.getPingMuSize(this)
+        tv3.text = "宽 :" + dm.widthPixels + "  高:" + dm.heightPixels + "--屏幕尺寸:" + DensityUtil.getPingMuSize(
+            this
+        )
         tv4.text = "当前手机： " + SystemUtil.getDeviceBrand() + "  " + SystemUtil.getSystemModel() + " \n" + "当前系统： " +
                 SystemUtil.getSystemVersion() + " " +  " \n" + "手机型号： " +
                 SystemUtil.getSystemModel() + " "
@@ -27,9 +33,14 @@ class MainActivity : AppCompatActivity() {
 
         L.e("相机路径:" + Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM))
         button.setOnClickListener {
-            var intent = Intent(this,CameraActivity::class.java)
+            var intent = Intent(this, CameraActivity::class.java)
             startActivity(intent)
           // startCamera()
+        }
+        demo.setOnClickListener {
+            var intent = Intent(this, DemoRecyclerViewActivity::class.java)
+            startActivity(intent)
+            // startCamera()
         }
 
     }

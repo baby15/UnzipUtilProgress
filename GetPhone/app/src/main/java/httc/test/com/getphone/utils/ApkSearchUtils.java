@@ -1,4 +1,4 @@
-package httc.test.com.getphone;
+package httc.test.com.getphone.utils;
 
 /**
  * Created by huangwenjun
@@ -14,6 +14,8 @@ import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import httc.test.com.getphone.base.MyApp;
+import httc.test.com.getphone.bean.MyFile;
 
 import java.io.File;
 import java.util.*;

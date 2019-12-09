@@ -1,4 +1,4 @@
-package httc.test.com.getphone;
+package httc.test.com.getphone.activity;
 
 import android.Manifest;
 import android.app.Activity;
@@ -19,11 +19,12 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+import httc.test.com.getphone.utils.L;
+import httc.test.com.getphone.R;
 
 import java.io.*;
 
