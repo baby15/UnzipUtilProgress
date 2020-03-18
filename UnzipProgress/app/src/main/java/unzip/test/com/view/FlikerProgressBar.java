@@ -219,7 +219,8 @@ public class FlikerProgressBar extends View {
         pgCanvas.clipRect(0, 0, getMeasuredWidth(), getMeasuredHeight());
         pgCanvas.drawColor(Color.parseColor("#F5F1F1"));
 
-        pgCanvas.save(Canvas.CLIP_SAVE_FLAG);
+        //todo 不存在
+       // pgCanvas.save(Canvas.CLIP_SAVE_FLAG);
         //画进度条
         //此为裁剪,裁剪出需要变换进度条的图像区域,区域裁剪完然后绘制颜色
         pgCanvas.clipRect(0, 0, right, getMeasuredHeight());
@@ -269,7 +270,8 @@ public class FlikerProgressBar extends View {
         float yCoordinate = (getMeasuredHeight() + tHeight) / 2;
         float progressWidth = (progress / maxProgress) * getMeasuredWidth();
         if(progressWidth > xCoordinate){
-            canvas.save(Canvas.CLIP_SAVE_FLAG);
+            //todo 不存在
+           // canvas.save(Canvas.CLIP_SAVE_FLAG);
             float right = Math.min(progressWidth, xCoordinate + tWidth * 1.1f);
             canvas.clipRect(xCoordinate, 0, right, getMeasuredHeight());
             canvas.drawText(progressText, xCoordinate, yCoordinate, textPaint);

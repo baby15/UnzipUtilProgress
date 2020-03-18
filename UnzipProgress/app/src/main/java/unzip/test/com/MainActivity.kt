@@ -3,6 +3,7 @@ package unzip.test.com
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+
 import unzip.test.com.unzip.R
 
 class MainActivity : AppCompatActivity() {
@@ -13,6 +14,7 @@ class MainActivity : AppCompatActivity() {
 
         // Example of a call to a native method
         sample_text.text = stringFromJNI()
+     //   HttcSdk.getFileMd5("")
     }
 
     /**

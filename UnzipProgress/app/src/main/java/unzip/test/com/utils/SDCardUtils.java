@@ -6,12 +6,14 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.os.storage.StorageManager;
 
-import com.httc.cn.manger.application.MyApp;
+
 
 import java.io.File;
 import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+
+import unzip.test.com.application.MyApp;
 
 /**
  * Created by huagnwenjun on 2017/12/5
