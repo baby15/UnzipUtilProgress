@@ -16,7 +16,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <unzip.test.com.view.FlikerProgressBar
+   <!-- <unzip.test.com.view.FlikerProgressBar
         android:id="@+id/round_flikerbar"
         android:layout_width="@dimen/base60dp"
         android:layout_height="@dimen/base35dp"
@@ -26,6 +26,6 @@
         app:loadingColor="@color/loadingColor"
         app:stopColor="@color/stopColor"
         app:radius="@dimen/base20dp"
-        />
+        />-->
 
 </android.support.constraint.ConstraintLayout>
