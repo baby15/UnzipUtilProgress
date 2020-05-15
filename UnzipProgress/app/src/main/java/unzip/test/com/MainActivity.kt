@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.httc.scan.jni.HttcSdk
 import kotlinx.android.synthetic.main.activity_main.*
+import unzip.test.com.kotlin.Coroutines
 
 import unzip.test.com.unzip.R
 import unzip.test.com.utils.L
@@ -17,11 +18,13 @@ class MainActivity : AppCompatActivity() {
         // Example of a call to a native method
       //  sample_text.text = stringFromJNI()
      //   HttcSdk.getFileMd5("")
-        var md5 = HttcSdk.getFileMd5("E:/douyin.apk")
-        sample_text.text = "没有值"
-        md5?.let {
-           sample_text.text = md5
-       }
+      //  var md5 = HttcSdk.getFileMd5("E:/douyin.apk")
+        //sample_text.text = "没有值"
+//        md5?.let {
+//           sample_text.text = md5
+//       }
+        Coroutines.coroutines()
+        Coroutines.get()
     }
 
     /**
