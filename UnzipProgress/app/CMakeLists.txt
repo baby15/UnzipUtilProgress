@@ -9,7 +9,9 @@ cmake_minimum_required(VERSION 3.4.1)
 # or SHARED, and provides the relative paths to its source code.
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
-
+file(GLOB native_srcs "src/main/jni/*.c")
+file(GLOB native_srcs1 "src/main/jni/local_logic_c/*.c")
+file(GLOB native_srcs2 "src/main/cpp/*.c")
 add_library( # Sets the name of the library.
              native-lib
 
@@ -17,7 +19,11 @@ add_library( # Sets the name of the library.
              SHARED
 
              # Provides a relative path to your source file(s).
-             src/main/cpp/native-lib.cpp )
+             src/main/cpp/native-lib.cpp
+        ${native_srcs}
+        ${native_srcs1}
+        ${native_srcs2})
+
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
@@ -36,8 +42,23 @@ find_library( # Sets the name of the path variable.
 # can link multiple libraries, such as libraries you define in this
 # build script, prebuilt third-party libraries, or system libraries.
 
+#包含头文件
+include_directories( "src/main/cpp/openssl/include" )
+
+#添加库
+add_library(crypto STATIC IMPORTED)
+set_target_properties(crypto
+        PROPERTIES IMPORTED_LOCATION
+        ${CMAKE_SOURCE_DIR}/src/main/cpp/openssl/${ANDROID_ABI}/libcrypto.a)
+add_library(ssl STATIC IMPORTED)
+set_target_properties(ssl
+        PROPERTIES IMPORTED_LOCATION
+        ${CMAKE_SOURCE_DIR}/src/main/cpp/openssl/${ANDROID_ABI}/libssl.a)
 target_link_libraries( # Specifies the target library.
                        native-lib
+                        hash
+                        crypto
+                        ssl
 
                        # Links the target library to the log library
                        # included in the NDK.

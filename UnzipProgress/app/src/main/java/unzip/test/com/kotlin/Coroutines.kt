@@ -9,6 +9,9 @@ import kotlinx.coroutines.launch
 class Coroutines {
     companion object {
         fun coroutines() {
+            repeat(1000) {
+
+            }
             Log.d("AA", "协程初始化开始，时间: " + System.currentTimeMillis())
 
             GlobalScope.launch(Dispatchers.Unconfined) {

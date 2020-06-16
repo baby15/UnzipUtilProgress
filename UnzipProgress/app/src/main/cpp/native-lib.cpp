@@ -7,7 +7,7 @@ JNIEXPORT jstring
 JNICALL
 Java_unzip_test_com_unzip_MainActivity_stringFromJNI(
         JNIEnv *env,
-        jobject /* this */) {
-    std::string hello = "Hello from C++";
-    return env->NewStringUTF(hello.c_str());
+jobject /* this */) {
+std::string hello = "Hello from C++";
+return env->NewStringUTF(hello.c_str());
 }

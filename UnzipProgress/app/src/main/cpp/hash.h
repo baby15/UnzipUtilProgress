@@ -15,6 +15,20 @@ extern "C" {
 	JNIEXPORT jstring JNICALL Java_com_httc_scan_jni_HttcSdk_getFileMd5
 		(JNIEnv *, jclass, jstring);
 
+	/*
+	 * Class:     com_httc_scan_jni_HttcSdk
+	 * Method:    getFileSha256
+	 * Signature: (Ljava/lang/String;)Ljava/lang/String;
+	 */
+	JNIEXPORT jstring JNICALL Java_com_httc_scan_jni_HttcSdk_getFileSha256
+		(JNIEnv *, jclass, jstring);
+	/*
+	 * Class:     com_httc_scan_jni_HttcSdk
+	 * Method:    getFileSm3
+	 * Signature: (Ljava/lang/String;)Ljava/lang/String;
+	 */
+	JNIEXPORT jstring JNICALL Java_com_httc_scan_jni_HttcSdk_getFileSm3
+		(JNIEnv *, jclass, jstring);
 #ifdef __cplusplus
 }
 #endif
