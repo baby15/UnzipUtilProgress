@@ -4,8 +4,10 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 
+import androidx.appcompat.widget.AppCompatTextView;
 
-public class WatermarkTextView extends android.support.v7.widget.AppCompatTextView {
+
+public class WatermarkTextView extends AppCompatTextView {
     public WatermarkTextView(Context context) {
         super(context);
     }

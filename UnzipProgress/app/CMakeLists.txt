@@ -13,13 +13,13 @@ file(GLOB native_srcs "src/main/jni/*.c")
 file(GLOB native_srcs1 "src/main/jni/local_logic_c/*.c")
 file(GLOB native_srcs2 "src/main/cpp/*.c")
 add_library( # Sets the name of the library.
-             native-lib
+             hash
 
              # Sets the library as a shared library.
              SHARED
 
              # Provides a relative path to your source file(s).
-             src/main/cpp/native-lib.cpp
+             src/main/cpp/hash.c
         ${native_srcs}
         ${native_srcs1}
         ${native_srcs2})
@@ -55,7 +55,7 @@ set_target_properties(ssl
         PROPERTIES IMPORTED_LOCATION
         ${CMAKE_SOURCE_DIR}/src/main/cpp/openssl/${ANDROID_ABI}/libssl.a)
 target_link_libraries( # Specifies the target library.
-                       native-lib
+                   #   native-lib
                         hash
                         crypto
                         ssl

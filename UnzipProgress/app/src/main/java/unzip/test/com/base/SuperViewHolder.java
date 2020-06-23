@@ -1,8 +1,9 @@
 package unzip.test.com.base;
 
-import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.View;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by mac on 2017/5/19.
