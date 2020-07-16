@@ -6,8 +6,11 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/UnzipProgress-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/UnzipProgress-app.iml" group="UnzipProgress/app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/lib/UnzipProgress-lib.iml" filepath="$PROJECT_DIR$/.idea/modules/lib/UnzipProgress-lib.iml" group="UnzipProgress/lib" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/UnzipUtilProgress-UnzipProgress.iml" filepath="$PROJECT_DIR$/.idea/modules/UnzipUtilProgress-UnzipProgress.iml" group="UnzipProgress" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/UnzipUtilProgress-UnzipProgress-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/UnzipUtilProgress-UnzipProgress-app.iml" group="UnzipProgress/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lib/UnzipUtilProgress-UnzipProgress-lib.iml" filepath="$PROJECT_DIR$/.idea/modules/lib/UnzipUtilProgress-UnzipProgress-lib.iml" group="UnzipProgress/lib" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="UnzipProgress/app" />
       <module fileurl="file://$PROJECT_DIR$/lib/lib.iml" filepath="$PROJECT_DIR$/lib/lib.iml" group="UnzipProgress/lib" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mycode-UnzipUtilProgress-UnzipProgress.iml" filepath="$PROJECT_DIR$/.idea/modules/mycode-UnzipUtilProgress-UnzipProgress.iml" group="UnzipProgress" />
     </modules>
   </component>
 </project>

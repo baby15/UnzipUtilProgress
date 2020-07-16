@@ -17,12 +17,17 @@ public class MakeUtils {
     private static final String XML_HEADER = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n";
     private static final String XML_RESOURCE_START = "<resources>\r\n";
     private static final String XML_RESOURCE_END = "</resources>\r\n";
-    //private static final String XML_DIMEN_TEMPLETE = "<dimen name=\"qb_%1$spx_%2$d\">%3$.2fdp</dimen>\r\n";
-    private static final String XML_DIMEN_TEMPLETE = "<dimen name=\"base%1$s%2$.1fdp\">%3$.2fdp</dimen>\r\n";
+//    private static final String XML_DIMEN_TEMPLETE = "<dimen name=\"qb_%1$spx_%2$d\">%3$.2fdp</dimen>\r\n";
+//    private static final String XML_DIMEN_TEMPLETE = "<dimen name=\"base%1$s%2$.1fdp\">%3$.2fdp</dimen>\r\n";
+    private static final String XML_DIMEN_TEMPLETE = "<dimen name=\"lay_%1$d\">%2$.2fdp</dimen>\r\n";
+    //生成字体可用
+    private static final String XML_DIMEN_TEMPLETE_FONT = "<dimen name=\"font_%1$d\">%2$.2fsp</dimen>\r\n";
 
    
     private static final String XML_BASE_DPI = "<string name=\"base_dpi\">%ddp</string>\r\n";
     private  static final int MAX_SIZE = 400;
+    private  static final int MAX_SIZE_FONT = 30;
+    private static final int stepLength = 2;//为1时，会生成0.5dp，为2时生成整数
 
     /**
      * 生成的文件名
@@ -54,12 +59,22 @@ public class MakeUtils {
             //备份生成的相关信息
             temp = String.format(XML_BASE_DPI, type.getSwWidthDp());
             sb.append(temp);
-            for (int i = 0; i <= MAX_SIZE; i++) {
-            	
-                dpValue = px2dip((float) i,type.getSwWidthDp(),designWidth);
+            //字号大小sp
+            for (int i = 1; i <= MAX_SIZE_FONT; i++) {
 
-                //temp = String.format(XML_DIMEN_TEMPLETE,"", i , dpValue);
-                temp = String.format(XML_DIMEN_TEMPLETE,"", i / 2.0, dpValue);
+                dpValue = px2dip((float) i*stepLength,type.getSwWidthDp(),designWidth);
+
+                temp = String.format(XML_DIMEN_TEMPLETE_FONT,i, dpValue);
+                sb.append(temp);
+            }
+            for (int i = 1; i <= MAX_SIZE; i++) {
+
+                dpValue = px2dip((float) i*stepLength,type.getSwWidthDp(),designWidth);
+                System.out.println("dpvalue=" + dpValue);
+
+//                temp = String.format(XML_DIMEN_TEMPLETE,"", i , dpValue);
+            //    temp = String.format(XML_DIMEN_TEMPLETE,"", i / 2.0, dpValue);
+                temp = String.format(XML_DIMEN_TEMPLETE,i, dpValue);
                 sb.append(temp);
             }
 

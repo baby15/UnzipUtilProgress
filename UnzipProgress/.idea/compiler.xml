@@ -4,6 +4,7 @@
     <bytecodeTargetLevel>
       <module name="lib" target="1.7" />
       <module name="UnzipProgress-lib" target="1.7" />
+      <module name="UnzipUtilProgress-UnzipProgress-lib" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
